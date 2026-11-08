@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+
+/* Bahasa desain terinspirasi landing page SaaS modern: ungu elektrik, aksen
+   oranye untuk CTA, kartu bersudut besar, label "eyebrow" berbentuk pil. */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-ungu-50: #f4f2ff;
+  --color-ungu-100: #ebe7ff;
+  --color-ungu-200: #d6cefe;
+  --color-ungu-300: #b6a6fd;
+  --color-ungu-400: #8f7bfb;
+  --color-ungu-500: #6c4cf6;
+  --color-ungu-600: #5b3df5;
+  --color-ungu-700: #4a2ed6;
+  --color-ungu-800: #2e1f86;
+  --color-ungu-900: #1c1452;
+  --color-ungu-950: #120c38;
+  --color-oranye-500: #ff5a36;
+  --color-oranye-600: #ee4420;
+  --color-tinta: #17123a;
+  --color-abu: #6b6890;
+  --color-garis: #e7e4f5;
+  --color-latar: #f7f6fc;
+  --color-t1: #e5484d;
+  --color-t2: #f59e0b;
+  --color-t3: #3b82f6;
+  --color-t4: #10b981;
+  --color-t5: #7c3aed;
+  --color-t6: #94a3b8;
+  --radius-kartu: 1.25rem;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  @apply bg-latar text-tinta antialiased font-sans;
+}
+
+@utility tombol {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+}
+
+@layer components {
+  .kartu {
+    @apply bg-white rounded-[var(--radius-kartu)] border border-garis shadow-[0_1px_2px_rgba(23,18,58,0.04),0_8px_24px_-12px_rgba(23,18,58,0.12)];
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide;
+  }
+  .tombol-utama {
+    @apply tombol bg-ungu-600 text-white hover:bg-ungu-700 shadow-[0_8px_20px_-8px_rgba(91,61,245,0.7)];
+  }
+  .tombol-cta {
+    @apply tombol bg-oranye-500 text-white hover:bg-oranye-600 shadow-[0_8px_20px_-8px_rgba(255,90,54,0.7)];
+  }
+  .tombol-garis {
+    @apply tombol border border-garis bg-white text-tinta hover:border-ungu-300 hover:text-ungu-700;
+  }
+  .tombol-hantu {
+    @apply tombol border border-white/30 text-white hover:bg-white/10;
+  }
+  .masukan {
+    @apply w-full rounded-xl border border-garis bg-white px-4 py-3 text-base outline-none focus:border-ungu-500 focus:ring-4 focus:ring-ungu-100;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-tinta;
+  }
+  .judul-bagian {
+    @apply text-lg font-bold text-tinta;
+  }
+  .teks-kecil {
+    @apply text-sm text-abu;
+  }
+  .hero-ungu {
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(143, 123, 251, 0.55), transparent 60%),
+      radial-gradient(800px 400px at -10% 110%, rgba(255, 90, 54, 0.18), transparent 60%),
+      linear-gradient(135deg, #4a2ed6 0%, #5b3df5 45%, #7b5cff 100%);
+  }
+  .hero-gelap {
+    background:
+      radial-gradient(900px 420px at 80% 0%, rgba(108, 76, 246, 0.45), transparent 60%),
+      linear-gradient(160deg, #1c1452 0%, #120c38 100%);
+  }
+  .tabel {
+    @apply w-full text-sm;
+  }
+  .tabel th {
+    @apply bg-ungu-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-abu;
+  }
+  .tabel td {
+    @apply border-t border-garis px-3 py-2.5;
+  }
+}
+
+@keyframes melayang {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.melayang {
+  animation: melayang 6s ease-in-out infinite;
+}
+.melayang-lambat {
+  animation: melayang 9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .melayang,
+  .melayang-lambat {
+    animation: none;
+  }
+}

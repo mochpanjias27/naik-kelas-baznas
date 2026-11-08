@@ -1,0 +1,54 @@
+{
+  "versi": "demo-1",
+  "status": "Nilai awal untuk demonstrasi, belum dikalibrasi",
+  "indikator": [
+    { "kode": "pendapatan", "nama": "Rasio pendapatan terhadap had kifayah", "satuan": "kali had kifayah", "l": 0.0, "u": 1.5 },
+    { "kode": "aset", "nama": "Rasio kekayaan bersih terhadap nisab", "satuan": "kali nisab", "l": 0.0, "u": 1.0 },
+    { "kode": "tabungan", "nama": "Rasio tabungan terhadap pendapatan", "satuan": "proporsi", "l": 0.0, "u": 0.25 },
+    { "kode": "kelangsungan", "nama": "Kelangsungan usaha (bulan aktif / ambang)", "satuan": "proporsi", "l": 0.0, "u": 1.0 },
+    { "kode": "cibest", "nama": "Skor material-spiritual CIBEST", "satuan": "skor 0-1", "l": 0.0, "u": 1.0 }
+  ],
+  "metode_bobot": "manual",
+  "bobot": [0.3, 0.2, 0.15, 0.15, 0.2],
+  "ahp_matriks": [
+    [1, 2, 2, 2, 1],
+    [0.5, 1, 1, 1, 0.5],
+    [0.5, 1, 1, 1, 1],
+    [0.5, 1, 1, 1, 1],
+    [1, 2, 1, 1, 1]
+  ],
+  "rho": 0.5,
+  "ambang": [0.3, 0.42, 0.55, 0.7],
+  "had_kifayah_rt_bulanan": 3000000,
+  "nisab_gram": 85,
+  "harga_emas_per_gram": 1500000,
+  "tarif_zakat": 0.025,
+  "ambang_bulan_aktif": 36,
+  "jendela_rata_bulan": 3,
+  "bulan_penurunan_bertahap": 6,
+  "cusum": { "mu0": 1.0, "kappa": 0.1, "h": 1.0, "basis_bulan": 3 },
+  "markov": {
+    "langkah_bulan": 3,
+    "n_sampel": 1000,
+    "prior_alpha": [
+      [6.0, 2.0, 0.5, 0.2, 0.1, 1.0],
+      [1.0, 6.0, 2.0, 0.5, 0.1, 0.6],
+      [0.3, 1.0, 6.0, 2.0, 0.3, 0.4],
+      [0.1, 0.3, 1.0, 6.0, 1.0, 0.2]
+    ]
+  },
+  "sensitivitas": { "n_sampel": 1000, "konsentrasi": 20.0 },
+  "asesmen": {
+    "ambang_produktif": 60,
+    "pertanyaan": [
+      { "kode": "pengalaman", "teks": "Pengalaman menjalankan usaha", "bobot": 2, "gugur_bila_nol": false },
+      { "kode": "motivasi", "teks": "Motivasi dan kesediaan untuk didampingi", "bobot": 2, "gugur_bila_nol": true },
+      { "kode": "waktu", "teks": "Ketersediaan waktu dan tenaga untuk berusaha", "bobot": 2, "gugur_bila_nol": true },
+      { "kode": "keterampilan", "teks": "Keterampilan teknis sesuai jenis usaha", "bobot": 1.5, "gugur_bila_nol": false },
+      { "kode": "tempat_alat", "teks": "Ketersediaan tempat dan alat usaha", "bobot": 1, "gugur_bila_nol": false },
+      { "kode": "pasar", "teks": "Akses ke pembeli atau pasar", "bobot": 1.5, "gugur_bila_nol": false },
+      { "kode": "keuangan", "teks": "Kebiasaan mencatat dan memisahkan uang usaha", "bobot": 1, "gugur_bila_nol": false },
+      { "kode": "keluarga", "teks": "Dukungan keluarga", "bobot": 1, "gugur_bila_nol": false }
+    ]
+  }
+}

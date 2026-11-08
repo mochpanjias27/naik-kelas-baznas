@@ -1,0 +1,4 @@
+backend/
+engine/tests/
+tests/e2e/
+**/__pycache__/

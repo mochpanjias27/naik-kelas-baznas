@@ -1,0 +1,14 @@
+{
+  "name": "Naik Kelas — Prototipe Riset Graduasi Mustahik",
+  "short_name": "Naik Kelas",
+  "description": "Prototipe riset pendamping dan pemantau graduasi mustahik pengusaha (data SINTETIS).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f6fc",
+  "theme_color": "#5b3df5",
+  "lang": "id",
+  "icons": [
+    { "src": "/ikon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/ikon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
